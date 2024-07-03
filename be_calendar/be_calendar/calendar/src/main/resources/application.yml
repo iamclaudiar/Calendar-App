@@ -1,0 +1,120 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+
+      routes:
+        - id: events
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/api/events/**
+          metadata:
+            cors:
+              allowedOrigins: "http://localhost:3000"
+              allowedMethods:
+                - GET
+                - POST
+                - DELETE
+                - PUT
+                - PATCH
+                - OPTIONS
+              allowedHeaders: "*"
+              maxAge: 30
+        - id: users
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/api/users/**
+          metadata:
+            cors:
+              allowedOrigins: "http://localhost:3000"
+              allowedMethods:
+                - GET
+                - POST
+                - DELETE
+                - PUT
+                - PATCH
+                - OPTIONS
+              allowedHeaders: "*"
+              maxAge: 30
+        - id: users
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/api/gym-management/**
+          metadata:
+            cors:
+              allowedOrigins: "http://localhost:3000"
+              allowedMethods:
+                - GET
+                - POST
+                - DELETE
+                - PUT
+                - PATCH
+                - OPTIONS
+              allowedHeaders: "*"
+              maxAge: 30
+        - id: users
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/api/trainers/**
+          metadata:
+            cors:
+              allowedOrigins: "http://localhost:3000"
+              allowedMethods:
+                - GET
+                - POST
+                - DELETE
+                - PUT
+                - PATCH
+                - OPTIONS
+              allowedHeaders: "*"
+              maxAge: 30
+        - id: users
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/api/members/**
+          metadata:
+            cors:
+              allowedOrigins: "http://localhost:3000"
+              allowedMethods:
+                - GET
+                - POST
+                - DELETE
+                - PUT
+                - PATCH
+                - OPTIONS
+              allowedHeaders: "*"
+              maxAge: 30
+        - id: locations
+          uri: http://localhost:8083/
+          predicates:
+            - Path=/api/locations/**
+          metadata:
+            cors:
+              allowedOrigins: "http://localhost:3000"
+              allowedMethods:
+                - GET
+                - POST
+                - DELETE
+                - PUT
+                - PATCH
+                - OPTIONS
+              allowedHeaders: "*"
+              maxAge: 30
+        - id: subscriptions
+          uri: http://localhost:8084/
+          predicates:
+            - Path=/api/subscriptions/**
+          metadata:
+            cors:
+              allowedOrigins: "http://localhost:3000"
+              allowedMethods:
+                - GET
+                - POST
+                - DELETE
+                - PUT
+                - PATCH
+                - OPTIONS
+              allowedHeaders: "*"
+              maxAge: 30
